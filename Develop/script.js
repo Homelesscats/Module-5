@@ -33,11 +33,39 @@ $(".time-block").each(function() {
 // Uses parseInt and split on the block's id to get the number part of the string and store it in a variable.
 let blockTime = parseInt($(this).attr("id").split("-")[1]);
 
+   if (blockTime < currentHour) {
+     $(this).addClass("past");
+    } else if (blockTime === currentHour) {
 
+     $(this).removeClass("past");
 
+     $(this).addClass("present");
+
+    } else if (blockTime > currentHour) {
+     
+      $(this).removeClass("past");
+
+     $(this).removeClass("present");
+
+     $(this).addClass("future");
+    
+    } else {
+       console.log("error")
 
 
 }
+
+});
+
+
+}
+ 
+ // Run the hour tracker portion of this app:
+ hourTracker();
+ // pull local storage using the ID of each block 
+
+$('#hour-09 .description').val(localStorage.getItem('hour-09'));
+
 
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -58,4 +86,4 @@ let blockTime = parseInt($(this).attr("id").split("-")[1]);
 
     
 
-});
+
