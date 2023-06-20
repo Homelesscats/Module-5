@@ -1,6 +1,28 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+$(document).ready(function () {
+
+
+// Listens for click events on any elements with class ".saveBtn".
+$(".saveBtn").on("click", function () {
+  // Selects the sibling element using 'this' with class "description" of the current element textarea. 
+  // Gets the input value of that element and trims it, and stores it in a variable.
+  let textArea = $(this).siblings(".description").val().trim();
+  let timeSlot = $(this).parent().attr("id");
+
+  localStorage.setItem(timeSlot, textArea);
+});
+
+
+
+
+
+});
+
+
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -20,4 +42,11 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+
+
+
+
+    
+
 });
